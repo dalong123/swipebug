@@ -1,0 +1,22 @@
+<ion-view view-title="Word Packs" no-scroll>
+    <ion-content>
+        <swipe-cards class="swipe-cards">
+            <swipe-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-card-swipe="cardSwiped($index)">
+                <div>
+                    <div class="title">
+                        {{card.title}}
+                    </div>
+                    <div class="image">
+                        <img ng-src="{{card.image}}">
+                    </div>
+                    <div class="button-bar">
+                        <button class="button button-clear button-positive" ng-click="buy(card)" ng-disabled="card.disable">
+                          <span ng-if="!card.disable">Buy Pack</span>
+                          <span ng-if="card.disable">Purchased</span>
+                          </button>
+                    </div>
+                </div>
+            </swipe-card>
+        </swipe-cards>
+    </ion-content>
+</ion-view>
